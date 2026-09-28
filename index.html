@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="LifeTwin AI is a simple personal dashboard for understanding daily routines and finding useful next steps." />
+    <title>LifeTwin AI | Your Day, Seen Together</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app" id="top">
+      <header class="topbar">
+        <a class="brand" href="#top" aria-label="LifeTwin AI home">
+          <span class="brand-mark">LT</span>
+          <span class="brand-text"><strong>LifeTwin</strong><small>your day, together</small></span>
+        </a>
+        <nav class="desktop-nav" aria-label="Main navigation">
+          <a href="#home">Home</a>
+          <a href="#twin">My twin</a>
+          <a href="#insights">Insights</a>
+          <a href="#how">How it works</a>
+        </nav>
+        <div class="top-actions">
+          <span class="local-badge"><i></i> Local demo</span>
+          <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-nav"><span></span><span></span><span></span><b class="sr-only">Open navigation</b></button>
+        </div>
+      </header>
+      <nav class="mobile-nav" id="mobile-nav" hidden aria-label="Mobile navigation">
+        <a href="#home">Home</a><a href="#twin">My twin</a><a href="#insights">Insights</a><a href="#how">How it works</a>
+      </nav>
+
+      <main>
+        <section class="hero page-width" id="home">
+          <div class="hero-copy reveal">
+            <span class="eyebrow">A SMALLER, CLEARER VIEW OF YOUR DAY</span>
+            <h1>Your day is more than one number.</h1>
+            <p>LifeTwin brings your sleep, movement, study routine and diet into one simple view, so you can notice patterns and decide what to try next.</p>
+            <div class="hero-actions"><a class="button button-primary" href="#twin">Build my twin <span>→</span></a><a class="button button-light" href="#how">How it works</a></div>
+            <div class="hero-proof"><span class="proof-icon">✦</span><p><strong>Made for real routines.</strong> A student-built concept for turning scattered daily details into a useful personal check-in.</p></div>
+          </div>
+          <div class="hero-card reveal delay-1">
+            <div class="hero-card-top"><span>MY DAILY TWIN</span><b>01</b></div>
+            <div class="hero-profile"><div class="avatar">SK</div><div><strong>Sample day</strong><small>updated just now</small></div><span class="online-dot"></span></div>
+            <div class="hero-ring"><div class="ring"><div><strong>4</strong><small>signals</small></div></div><div><span class="card-caption">A DAY IN CONTEXT</span><p>Sleep, movement, learning and food are easier to understand when seen together.</p></div></div>
+            <div class="hero-bars"><div><span>Sleep</span><i><b style="width:72%"></b></i></div><div><span>Movement</span><i><b class="green" style="width:48%"></b></i></div><div><span>Study</span><i><b class="rust" style="width:58%"></b></i></div></div>
+            <div class="hero-card-bottom"><span>example profile</span><strong>View insights →</strong></div>
+          </div>
+        </section>
+
+        <section class="simple-facts page-width reveal"><div><b>Sleep</b><span>how you rest</span></div><div><b>Movement</b><span>how you recharge</span></div><div><b>Study</b><span>how you focus</span></div><div><b>Diet</b><span>how you fuel</span></div><div class="fact-end"><span>One gentle check-in</span><b>→</b></div></section>
+
+        <section class="twin-section" id="twin">
+          <div class="page-width">
+            <div class="section-heading reveal"><div><span class="section-label">01 / MY TWIN</span><h2>Start with<br /><em>today.</em></h2></div><p>Add a few details about your day. LifeTwin turns them into a calm, easy-to-read snapshot. Try the example profile or enter your own values.</p></div>
+            <div class="demo-note reveal"><span>i</span><p><strong>Example mode:</strong> this page creates an instant browser preview so you can explore the product without an account or connection. It is not medical advice.</p></div>
+            <div class="twin-layout reveal">
+              <section class="form-card">
+                <div class="form-title"><span class="number">01</span><div><small>YOUR CHECK-IN</small><h3>Tell us about today</h3></div></div>
+                <form id="profile-form" novalidate>
+                  <label for="profile-name">Your name <small>optional</small></label>
+                  <input id="profile-name" type="text" value="Sample student" placeholder="e.g. Alex" />
+                  <div class="two-fields"><div><label for="sleep-hours">Sleep hours <small>0–24</small></label><input id="sleep-hours" type="number" min="0" max="24" step="0.1" value="7.2" required /></div><div><label for="activity-minutes">Movement minutes <small>today</small></label><input id="activity-minutes" type="number" min="0" max="1440" step="1" value="45" required /></div></div>
+                  <div class="two-fields"><div><label for="study-hours">Study hours <small>today</small></label><input id="study-hours" type="number" min="0" max="24" step="0.1" value="3.5" required /></div><div><label for="diet-type">Food routine <small>choose one</small></label><select id="diet-type"><option>Balanced</option><option>Vegetarian</option><option>Mixed</option><option>Other</option></select></div></div>
+                  <p class="error" id="form-error" role="alert"></p>
+                  <button class="button button-primary wide" type="submit">See my twin <span>→</span></button>
+                </form>
+                <button class="reset-link" id="reset-profile" type="button">Reset example</button>
+              </section>
+              <section class="twin-result" id="result-card">
+                <div class="result-heading"><div class="form-title"><span class="number rust-number">02</span><div><small>YOUR SNAPSHOT</small><h3 id="result-title">A clear starting point</h3></div></div><span class="result-label" id="result-label">EXAMPLE</span></div>
+                <div class="result-person"><div class="avatar small-avatar" id="profile-avatar">SS</div><div><strong id="result-name">Sample student</strong><span id="result-inputs">7.2 hrs sleep · 45 min movement · 3.5 hrs study</span></div><b><i></i> ready</b></div>
+                <div class="outcomes">
+                  <button class="outcome active blue" type="button" data-outcome="productivity"><span>Productivity</span><strong id="productivity-value">High</strong><small>example view</small></button>
+                  <button class="outcome rust" type="button" data-outcome="health"><span>Health risk</span><strong id="health-value">Low</strong><small>example view</small></button>
+                  <button class="outcome green" type="button" data-outcome="learning"><span>Learning</span><strong id="learning-value">Medium</strong><small>example view</small></button>
+                  <button class="outcome purple" type="button" data-outcome="stress"><span>Stress level</span><strong id="stress-value">Moderate</strong><small>example view</small></button>
+                </div>
+                <div class="selected-outcome" id="selected-outcome"><span>ABOUT THIS VIEW</span><p>The example profile gives a balanced starting picture. Select an outcome to see what that part of the twin means.</p></div>
+              </section>
+            </div>
+            <div class="daily-detail reveal"><section class="signal-card"><div class="small-heading"><span class="number blue-number">03</span><div><small>DAILY SIGNALS</small><h3>Your inputs at a glance</h3></div></div><div class="bars"><div><span>Sleep</span><i><b id="sleep-bar" style="width:72%"></b></i><strong id="sleep-value">7.2</strong></div><div><span>Movement</span><i><b class="green" id="activity-bar" style="width:48%"></b></i><strong id="activity-value">45</strong></div><div><span>Study</span><i><b class="rust" id="study-bar" style="width:58%"></b></i><strong id="study-value">3.5</strong></div></div><small class="chart-note">A simple comparison scale for this demo, not a health score.</small></section><section class="focus-card"><div class="small-heading"><span class="number green-number">04</span><div><small>NEXT SMALL STEP</small><h3>Keep it manageable</h3></div></div><p id="focus-copy">Use this snapshot as a starting point. Protect the routines that are already helping and choose one small change to try next.</p><div class="focus-line"><span id="focus-label">TODAY'S FOCUS</span><strong id="focus-value">Keep your routine visible</strong></div></section></div>
+          </div>
+        </section>
+
+        <section class="insights-section page-width" id="insights">
+          <div class="section-heading reveal"><div><span class="section-label">02 / INSIGHTS</span><h2>Small patterns<br /><em>become easier to see.</em></h2></div><p>There is no single perfect day. The point is to make the relationship between your routines easier to notice, then choose a useful next step.</p></div>
+          <div class="insight-grid reveal"><article><span class="insight-icon blue-icon">↗</span><h3>Productivity</h3><p>See how your study, sleep and activity context comes together around the work you want to finish.</p><a href="#twin">Check today →</a></article><article><span class="insight-icon rust-icon">◌</span><h3>Health risk</h3><p>Use the view as an indicative signal for everyday decisions, never as a diagnosis or clinical answer.</p><a href="#twin">Review signals →</a></article><article><span class="insight-icon green-icon">✦</span><h3>Learning efficiency</h3><p>Notice how your learning routine sits beside the rest of your day instead of living in a separate place.</p><a href="#twin">View learning →</a></article><article><span class="insight-icon purple-icon">~</span><h3>Stress level</h3><p>Make space for reflection by looking at patterns across your routine, not one isolated moment.</p><a href="#twin">Open snapshot →</a></article></div>
+          <div class="recommendation-panel reveal"><div><span class="section-label">A KINDER KIND OF RECOMMENDATION</span><h3>One useful suggestion<br /><em>is enough for today.</em></h3></div><div class="recommendation-flow"><div><b>01</b><span>Your signals</span></div><i>→</i><div><b>02</b><span>Your pattern</span></div><i>→</i><div><b>03</b><span>Your next step</span></div></div></div>
+        </section>
+
+        <section class="how-section" id="how">
+          <div class="page-width">
+            <div class="section-heading reveal"><div><span class="section-label">03 / HOW IT WORKS</span><h2>A simple path from<br /><em>data to direction.</em></h2></div><p>LifeTwin keeps the experience simple on purpose. You add the context, look at the combined view, and decide what feels useful.</p></div>
+            <div class="steps reveal"><article><span>01</span><i class="step-dash"></i><h3>Add your day</h3><p>Enter a few signals about sleep, movement, study and food.</p></article><article><span>02</span><i class="step-dash"></i><h3>See the whole picture</h3><p>Your information becomes one readable personal snapshot.</p></article><article><span>03</span><i class="step-dash"></i><h3>Notice a pattern</h3><p>Look at the four views together instead of judging one number.</p></article><article><span>04</span><i class="step-dash"></i><h3>Choose one next step</h3><p>Start small and return to your twin when the day changes.</p></article></div>
+            <div class="context-map reveal"><div class="context-source"><span>YOUR DAY</span><b>Sleep</b><b>Movement</b><b>Study</b><b>Food</b></div><div class="map-lines"><i></i><i></i><i></i><i></i></div><div class="context-core"><span>ONE TWIN</span><strong>LifeTwin</strong><small>your context, together</small></div><div class="map-lines right"><i></i><i></i><i></i><i></i></div><div class="context-source output"><span>YOUR VIEW</span><b>Productivity</b><b>Health risk</b><b>Learning</b><b>Stress</b></div></div>
+          </div>
+        </section>
+
+        <section class="about-section page-width" id="about">
+          <div class="about-card reveal"><div><span class="section-label">A NOTE FROM THE BUILD</span><h2>Built to make<br /><em>busy days clearer.</em></h2></div><div><p>LifeTwin is a student-built product idea for people who collect lots of daily information but rarely see it in one place. It keeps the first experience focused: understand the day, notice the context, choose the next step.</p><p class="quiet-note">LifeTwin does not provide medical diagnosis or clinical advice. This demo is for everyday reflection.</p></div></div>
+        </section>
+      </main>
+
+      <footer class="footer"><div class="page-width footer-top"><div class="footer-brand"><span class="brand-mark">LT</span><div><strong>LifeTwin AI</strong><small>Your day, seen together.</small></div></div><div class="footer-links"><a href="#twin">Build my twin</a><a href="#how">How it works</a><a href="#about">About</a></div><span class="footer-note">Student-built product demo</span></div><div class="page-width footer-bottom"><span>LifeTwin AI</span><span>Made for everyday decisions</span><a href="#top">Back to top ↑</a></div></footer>
+    </div>
+    <button class="back-top" type="button" aria-label="Back to top">↑</button>
+    <script src="script.js"></script>
+  </body>
+</html>
